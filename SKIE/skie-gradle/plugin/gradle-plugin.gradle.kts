@@ -13,8 +13,8 @@ gradlePlugin {
     vcsUrl = "https://github.com/touchlab/SKIE.git"
 
     plugins {
-        create("co.touchlab.skie") {
-            id = "co.touchlab.skie"
+        create("com.nickhassan.skie") {
+            id = "com.nickhassan.skie"
             displayName = "Swift and Kotlin, unified"
             implementationClass = "co.touchlab.skie.plugin.SkieGradlePlugin"
             version = project.version

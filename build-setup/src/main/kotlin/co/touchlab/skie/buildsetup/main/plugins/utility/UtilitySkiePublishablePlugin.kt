@@ -64,12 +64,7 @@ abstract class UtilitySkiePublishablePlugin : Plugin<Project> {
 
             val signingExtension = extensions.getByType<SigningExtension>()
 
-            val signingKey: String? by project
-            val signingPassword: String? by project
-
-            if (!signingKey.isNullOrBlank()) {
-                signingExtension.useInMemoryPgpKeys(signingKey, signingPassword)
-            }
+            signingExtension.useGpgCmd()
 
             extensions.configure<PublishingExtension> {
                 publications.withType<MavenPublication>().configureEach {

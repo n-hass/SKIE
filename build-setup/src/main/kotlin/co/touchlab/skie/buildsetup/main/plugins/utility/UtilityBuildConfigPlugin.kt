@@ -14,7 +14,9 @@ abstract class UtilityBuildConfigPlugin : Plugin<Project> {
         apply<BuildConfigPlugin>()
 
         extensions.configure<BuildConfigExtension> {
-            packageName(("${project.group}.${project.name}").replace("-", "_"))
+            // Package of the generated BuildConfig must track the source-code root
+            // (co.touchlab.skie), not the published Maven group, which may be forked/rebranded.
+            packageName(("co.touchlab.skie.${project.name}").replace("-", "_"))
 
             generator.set(BuildConfigKotlinGenerator())
         }
